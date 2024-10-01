@@ -1,0 +1,125 @@
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000;
+  background-size: cover; /* Mengatur agar gambar menutupi seluruh area */
+  color: #00ff00;
+  margin: 0;
+  padding: 0; /* Hapus padding default */
+  height: 100vh; /* Set height agar sama dengan viewport */
+  overflow-y: auto; /* Memungkinkan scroll ke atas dan ke bawah */
+}
+
+.container {
+  max-width: 800px;
+  margin: 20px auto; /* Tambahkan margin vertikal */
+  border: 1px solid #00ff00;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7); /* Tambahkan latar belakang semi-transparan untuk konten */
+  border-radius: 10px; /* Tambahkan border-radius untuk tampilan yang lebih baik */
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  margin: 20px 0; /* Tambahkan margin untuk judul */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #00ff00;
+  padding: 10px;
+  text-align: left;
+  transition: background-color 0.3s;
+}
+
+table tbody tr:hover {
+  background-color: rgba(0, 255, 0, 0.2); /* Efek saat hover pada baris tabel */
+}
+
+input[type="date"], input[type="text"], button {
+  margin: 10px 0;
+  padding: 10px;
+  width: calc(100% - 22px);
+  background-color: #111;
+  color: #00ff00;
+  border: 1px solid #00ff00;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: #00ff00; /* Warna latar belakang untuk ikon kalender */
+  border-radius: 50%; /* Membuat ikon menjadi bulat */
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: #00ff00;
+  color: #000;
+  transform: scale(1.05); /* Memperbesar tombol saat hover */
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #00ff00;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+
+.notification.fade-out {
+  opacity: 0; /* Mengurangi opacity untuk efek menghilang */
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #00ff00;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.loading.visible {
+  display: block;
+  opacity: 1;
+}
+
+@keyframes rain {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(100%); }
+}
+
+.rain {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100vh;
+  background-color: #00ff00;
+  animation: rain 2s linear infinite;
+}
+
+@keyframes createRain {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+.rain:nth-child(odd) {
+  animation-delay: 0.5s;
+}

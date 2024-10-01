@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Jadwal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title"></h1>
+        <input type="date" id="datePicker">
+        <button id="clearSchedule">Hapus Jadwal</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Jam</th>
+                    <th>Kegiatan</th>
+                </tr>
+            </thead>
+            <tbody id="scheduleBody">
+                <!-- Baris untuk setiap jam -->
+                <script>
+                    for (let i = 0; i < 24; i++) {
+                        const hour = i < 10 ? `0${i}:00` : `${i}:00`;
+                        document.write(`
+                            <tr>
+                                <td>${hour}</td>
+                                <td><input type="text" class="activity" data-hour="${hour}"></td>
+                            </tr>
+                        `);
+                    }
+                </script>
+            </tbody>
+        </table>
+        <button id="saveSchedule">Simpan Jadwal</button>
+    </div>
+    
+    <div id="loading" class="loading" style="display: none;">Loading...</div>
+    <script src="script.js"></script>
+</body>
+</html>
